@@ -1,4 +1,4 @@
-export default function Footer() {
+const Footer: React.FC = () => {
   return (
     <footer className="text-sm text-gray-500 text-center mt-12 mb-4">
       <p>© {new Date().getFullYear()} Boring Global. All rights reserved.</p>
@@ -14,5 +14,7 @@ export default function Footer() {
         </a>
       </p>
     </footer>
-  );
+  )
 }
+
+export default Footer

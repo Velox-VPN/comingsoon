@@ -1,6 +1,18 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+  DocumentInitialProps,
+} from 'next/document'
 
 class MyDocument extends Document {
+  static async getInitialProps(ctx: DocumentContext): Promise<DocumentInitialProps> {
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
+  }
+
   render() {
     return (
       <Html lang="en">
@@ -20,7 +32,10 @@ class MyDocument extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="theme-color" content="#000000" />
           <meta property="og:title" content="Boring Global" />
-          <meta property="og:description" content="Coming soon: boring.global — a tech-focused holdings company." />
+          <meta
+            property="og:description"
+            content="Coming soon: boring.global — a tech-focused holdings company."
+          />
           {/* <meta property="og:image" content="/og-image.png" /> */}
           <meta property="og:url" content="https://boring.global" />
           <meta name="twitter:card" content="summary_large_image" />

@@ -1,6 +1,11 @@
+import { ReactNode } from 'react'
 import Footer from '@/components/footer'
 
-export default function Layout({ children }) {
+type LayoutProps = {
+  children: ReactNode
+}
+
+export default function Layout({ children }: LayoutProps) {
   return (
     <div>
       <main className="flex-grow">{children}</main>

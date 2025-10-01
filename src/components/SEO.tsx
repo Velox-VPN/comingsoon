@@ -1,11 +1,19 @@
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import Head from 'next/head'
+import { useRouter } from 'next/router'
 
-const CommonSEO = ({ title, description, ogImage, ogType, siteTitle }) => {
-  const router = useRouter();
+type CommonSEOProps = {
+  title: string
+  description: string
+  ogImage?: string // not used but keeping it for future use
+  ogType?: string  // same here
+  siteTitle: string
+}
+
+const CommonSEO = ({ title, description, ogImage, ogType, siteTitle }: CommonSEOProps) => {
+  const router = useRouter()
   const titleTagTitle = title && siteTitle
     ? `${title} | ${siteTitle}`
-    : siteTitle || 'Coming Soon';
+    : siteTitle || 'Coming Soon'
 
   return (
     <Head>
@@ -22,7 +30,13 @@ const CommonSEO = ({ title, description, ogImage, ogType, siteTitle }) => {
   )
 }
 
-export const PageSEO = ({ title, description, siteTitle }) => {
+type PageSEOProps = {
+  title: string
+  description: string
+  siteTitle: string
+}
+
+export const PageSEO = ({ title, description, siteTitle }: PageSEOProps) => {
   return (
     <CommonSEO
       title={title}
