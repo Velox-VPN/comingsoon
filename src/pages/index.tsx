@@ -1,22 +1,13 @@
-import { GetStaticProps } from 'next'
-import { PageSEO } from '@/components/SEO'
+import { PageSEO } from '@/components/SEO';
+import siteMetadata from '@/data/siteMetadata';
 
-type HomeProps = {
-  siteTitle: string
-}
-
-export const getStaticProps: GetStaticProps<HomeProps> = async () => {
-  return {
-    props: {
-      siteTitle: 'VeloxVPN',
-    },
-  }
-}
-
-export default function Home({ siteTitle }: HomeProps) {
+export default function Home() {
   return (
     <>
-      <PageSEO title="Coming Soon" siteTitle={siteTitle} />
+      <PageSEO
+        title={siteMetadata.title}
+        description={siteMetadata.description}
+      />
       <div className="min-h-screen flex flex-col items-center justify-center px-4 py-12 text-white font-mono">
         <div className="w-full max-w-2xl text-center">
           <h1 className="text-4xl md:text-5xl font-bold mb-3">Coming Soon</h1>
